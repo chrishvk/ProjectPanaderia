@@ -14,6 +14,8 @@ namespace Panaderia.Acceso.Datos.Data
 
         public DbSet<Almacen> Almacenes { get; set; }
 
+        public DbSet<Categoria> Categorias { get; set; }
+
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
