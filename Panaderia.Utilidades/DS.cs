@@ -8,5 +8,7 @@ namespace Panaderia.Utilidades
 {
     public static class DS
     {
+        public const string Exitosa = "Existosa";
+        public const string Error = "Error";
     }
 }

@@ -13,6 +13,10 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "D:\\uni\\9° Ciclo\\Ingeniería Web\\ProyectoPanadería\\Panaderia\\Panaderia\\wwwroot\\js\\almacen.js",
+      "PackagePath": "staticwebassets\\js\\almacen.js"
+    },
+    {
       "Id": "D:\\uni\\9° Ciclo\\Ingeniería Web\\ProyectoPanadería\\Panaderia\\Panaderia\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
     },
