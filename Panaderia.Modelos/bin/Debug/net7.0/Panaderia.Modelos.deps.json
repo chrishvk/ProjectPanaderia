@@ -1,0 +1,36 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v7.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v7.0": {
+      "Panaderia.Modelos/1.0.0": {
+        "dependencies": {
+          "Panaderia.Utilidades": "1.0.0"
+        },
+        "runtime": {
+          "Panaderia.Modelos.dll": {}
+        }
+      },
+      "Panaderia.Utilidades/1.0.0": {
+        "runtime": {
+          "Panaderia.Utilidades.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Panaderia.Modelos/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Panaderia.Utilidades/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

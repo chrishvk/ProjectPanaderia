@@ -1,0 +1,15 @@
+D:\uni\9° Ciclo\Ingeniería Web\ProyectoPanadería\Panaderia\Panaderia.Modelos\bin\Debug\net7.0\Panaderia.Modelos.deps.json
+D:\uni\9° Ciclo\Ingeniería Web\ProyectoPanadería\Panaderia\Panaderia.Modelos\bin\Debug\net7.0\Panaderia.Modelos.dll
+D:\uni\9° Ciclo\Ingeniería Web\ProyectoPanadería\Panaderia\Panaderia.Modelos\bin\Debug\net7.0\Panaderia.Modelos.pdb
+D:\uni\9° Ciclo\Ingeniería Web\ProyectoPanadería\Panaderia\Panaderia.Modelos\bin\Debug\net7.0\Panaderia.Utilidades.dll
+D:\uni\9° Ciclo\Ingeniería Web\ProyectoPanadería\Panaderia\Panaderia.Modelos\bin\Debug\net7.0\Panaderia.Utilidades.pdb
+D:\uni\9° Ciclo\Ingeniería Web\ProyectoPanadería\Panaderia\Panaderia.Modelos\obj\Debug\net7.0\Panaderia.Modelos.csproj.AssemblyReference.cache
+D:\uni\9° Ciclo\Ingeniería Web\ProyectoPanadería\Panaderia\Panaderia.Modelos\obj\Debug\net7.0\Panaderia.Modelos.GeneratedMSBuildEditorConfig.editorconfig
+D:\uni\9° Ciclo\Ingeniería Web\ProyectoPanadería\Panaderia\Panaderia.Modelos\obj\Debug\net7.0\Panaderia.Modelos.AssemblyInfoInputs.cache
+D:\uni\9° Ciclo\Ingeniería Web\ProyectoPanadería\Panaderia\Panaderia.Modelos\obj\Debug\net7.0\Panaderia.Modelos.AssemblyInfo.cs
+D:\uni\9° Ciclo\Ingeniería Web\ProyectoPanadería\Panaderia\Panaderia.Modelos\obj\Debug\net7.0\Panaderia.Modelos.csproj.CoreCompileInputs.cache
+D:\uni\9° Ciclo\Ingeniería Web\ProyectoPanadería\Panaderia\Panaderia.Modelos\obj\Debug\net7.0\Panaderia.Modelos.csproj.CopyComplete
+D:\uni\9° Ciclo\Ingeniería Web\ProyectoPanadería\Panaderia\Panaderia.Modelos\obj\Debug\net7.0\Panaderia.Modelos.dll
+D:\uni\9° Ciclo\Ingeniería Web\ProyectoPanadería\Panaderia\Panaderia.Modelos\obj\Debug\net7.0\refint\Panaderia.Modelos.dll
+D:\uni\9° Ciclo\Ingeniería Web\ProyectoPanadería\Panaderia\Panaderia.Modelos\obj\Debug\net7.0\Panaderia.Modelos.pdb
+D:\uni\9° Ciclo\Ingeniería Web\ProyectoPanadería\Panaderia\Panaderia.Modelos\obj\Debug\net7.0\ref\Panaderia.Modelos.dll

@@ -1,0 +1,17 @@
+D:\uni\9° Ciclo\Ingeniería Web\ProyectoPanadería\Panaderia\Panaderia.AccesoDatos\bin\Debug\net7.0\Panaderia.AccesoDatos.deps.json
+D:\uni\9° Ciclo\Ingeniería Web\ProyectoPanadería\Panaderia\Panaderia.AccesoDatos\bin\Debug\net7.0\Panaderia.AccesoDatos.dll
+D:\uni\9° Ciclo\Ingeniería Web\ProyectoPanadería\Panaderia\Panaderia.AccesoDatos\bin\Debug\net7.0\Panaderia.AccesoDatos.pdb
+D:\uni\9° Ciclo\Ingeniería Web\ProyectoPanadería\Panaderia\Panaderia.AccesoDatos\bin\Debug\net7.0\Panaderia.Modelos.dll
+D:\uni\9° Ciclo\Ingeniería Web\ProyectoPanadería\Panaderia\Panaderia.AccesoDatos\bin\Debug\net7.0\Panaderia.Utilidades.dll
+D:\uni\9° Ciclo\Ingeniería Web\ProyectoPanadería\Panaderia\Panaderia.AccesoDatos\bin\Debug\net7.0\Panaderia.Modelos.pdb
+D:\uni\9° Ciclo\Ingeniería Web\ProyectoPanadería\Panaderia\Panaderia.AccesoDatos\bin\Debug\net7.0\Panaderia.Utilidades.pdb
+D:\uni\9° Ciclo\Ingeniería Web\ProyectoPanadería\Panaderia\Panaderia.AccesoDatos\obj\Debug\net7.0\Panaderia.AccesoDatos.csproj.AssemblyReference.cache
+D:\uni\9° Ciclo\Ingeniería Web\ProyectoPanadería\Panaderia\Panaderia.AccesoDatos\obj\Debug\net7.0\Panaderia.AccesoDatos.GeneratedMSBuildEditorConfig.editorconfig
+D:\uni\9° Ciclo\Ingeniería Web\ProyectoPanadería\Panaderia\Panaderia.AccesoDatos\obj\Debug\net7.0\Panaderia.AccesoDatos.AssemblyInfoInputs.cache
+D:\uni\9° Ciclo\Ingeniería Web\ProyectoPanadería\Panaderia\Panaderia.AccesoDatos\obj\Debug\net7.0\Panaderia.AccesoDatos.AssemblyInfo.cs
+D:\uni\9° Ciclo\Ingeniería Web\ProyectoPanadería\Panaderia\Panaderia.AccesoDatos\obj\Debug\net7.0\Panaderia.AccesoDatos.csproj.CoreCompileInputs.cache
+D:\uni\9° Ciclo\Ingeniería Web\ProyectoPanadería\Panaderia\Panaderia.AccesoDatos\obj\Debug\net7.0\Panaderia.AccesoDatos.csproj.CopyComplete
+D:\uni\9° Ciclo\Ingeniería Web\ProyectoPanadería\Panaderia\Panaderia.AccesoDatos\obj\Debug\net7.0\Panaderia.AccesoDatos.dll
+D:\uni\9° Ciclo\Ingeniería Web\ProyectoPanadería\Panaderia\Panaderia.AccesoDatos\obj\Debug\net7.0\refint\Panaderia.AccesoDatos.dll
+D:\uni\9° Ciclo\Ingeniería Web\ProyectoPanadería\Panaderia\Panaderia.AccesoDatos\obj\Debug\net7.0\Panaderia.AccesoDatos.pdb
+D:\uni\9° Ciclo\Ingeniería Web\ProyectoPanadería\Panaderia\Panaderia.AccesoDatos\obj\Debug\net7.0\ref\Panaderia.AccesoDatos.dll

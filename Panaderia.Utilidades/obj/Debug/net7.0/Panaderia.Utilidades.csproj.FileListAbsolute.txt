@@ -1,0 +1,11 @@
+D:\uni\9° Ciclo\Ingeniería Web\ProyectoPanadería\Panaderia\Panaderia.Utilidades\bin\Debug\net7.0\Panaderia.Utilidades.deps.json
+D:\uni\9° Ciclo\Ingeniería Web\ProyectoPanadería\Panaderia\Panaderia.Utilidades\bin\Debug\net7.0\Panaderia.Utilidades.dll
+D:\uni\9° Ciclo\Ingeniería Web\ProyectoPanadería\Panaderia\Panaderia.Utilidades\bin\Debug\net7.0\Panaderia.Utilidades.pdb
+D:\uni\9° Ciclo\Ingeniería Web\ProyectoPanadería\Panaderia\Panaderia.Utilidades\obj\Debug\net7.0\Panaderia.Utilidades.GeneratedMSBuildEditorConfig.editorconfig
+D:\uni\9° Ciclo\Ingeniería Web\ProyectoPanadería\Panaderia\Panaderia.Utilidades\obj\Debug\net7.0\Panaderia.Utilidades.AssemblyInfoInputs.cache
+D:\uni\9° Ciclo\Ingeniería Web\ProyectoPanadería\Panaderia\Panaderia.Utilidades\obj\Debug\net7.0\Panaderia.Utilidades.AssemblyInfo.cs
+D:\uni\9° Ciclo\Ingeniería Web\ProyectoPanadería\Panaderia\Panaderia.Utilidades\obj\Debug\net7.0\Panaderia.Utilidades.csproj.CoreCompileInputs.cache
+D:\uni\9° Ciclo\Ingeniería Web\ProyectoPanadería\Panaderia\Panaderia.Utilidades\obj\Debug\net7.0\Panaderia.Utilidades.dll
+D:\uni\9° Ciclo\Ingeniería Web\ProyectoPanadería\Panaderia\Panaderia.Utilidades\obj\Debug\net7.0\refint\Panaderia.Utilidades.dll
+D:\uni\9° Ciclo\Ingeniería Web\ProyectoPanadería\Panaderia\Panaderia.Utilidades\obj\Debug\net7.0\Panaderia.Utilidades.pdb
+D:\uni\9° Ciclo\Ingeniería Web\ProyectoPanadería\Panaderia\Panaderia.Utilidades\obj\Debug\net7.0\ref\Panaderia.Utilidades.dll
