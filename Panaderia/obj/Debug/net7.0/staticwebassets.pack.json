@@ -13,6 +13,54 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "D:\\uni\\9° Ciclo\\Ingeniería Web\\ProyectoPanadería\\Panaderia\\Panaderia\\wwwroot\\imagenes\\icono.ico",
+      "PackagePath": "staticwebassets\\imagenes\\icono.ico"
+    },
+    {
+      "Id": "D:\\uni\\9° Ciclo\\Ingeniería Web\\ProyectoPanadería\\Panaderia\\Panaderia\\wwwroot\\imagenes\\icono.png",
+      "PackagePath": "staticwebassets\\imagenes\\icono.png"
+    },
+    {
+      "Id": "D:\\uni\\9° Ciclo\\Ingeniería Web\\ProyectoPanadería\\Panaderia\\Panaderia\\wwwroot\\imagenes\\producto\\351504f2-6e2e-4319-9d88-42bd99393d33.jfif",
+      "PackagePath": "staticwebassets\\imagenes\\producto\\351504f2-6e2e-4319-9d88-42bd99393d33.jfif"
+    },
+    {
+      "Id": "D:\\uni\\9° Ciclo\\Ingeniería Web\\ProyectoPanadería\\Panaderia\\Panaderia\\wwwroot\\imagenes\\producto\\3869b5d0-0acc-4796-adf9-43a6c5e6f0c5.jpg",
+      "PackagePath": "staticwebassets\\imagenes\\producto\\3869b5d0-0acc-4796-adf9-43a6c5e6f0c5.jpg"
+    },
+    {
+      "Id": "D:\\uni\\9° Ciclo\\Ingeniería Web\\ProyectoPanadería\\Panaderia\\Panaderia\\wwwroot\\imagenes\\producto\\3ede4701-71f0-4147-813e-fa21846a9190.jfif",
+      "PackagePath": "staticwebassets\\imagenes\\producto\\3ede4701-71f0-4147-813e-fa21846a9190.jfif"
+    },
+    {
+      "Id": "D:\\uni\\9° Ciclo\\Ingeniería Web\\ProyectoPanadería\\Panaderia\\Panaderia\\wwwroot\\imagenes\\producto\\5ef299c0-d291-4335-80ad-e36527f96148.png",
+      "PackagePath": "staticwebassets\\imagenes\\producto\\5ef299c0-d291-4335-80ad-e36527f96148.png"
+    },
+    {
+      "Id": "D:\\uni\\9° Ciclo\\Ingeniería Web\\ProyectoPanadería\\Panaderia\\Panaderia\\wwwroot\\imagenes\\producto\\6a68cfa5-4c1e-4f3e-8ba9-07321dd2465e.jfif",
+      "PackagePath": "staticwebassets\\imagenes\\producto\\6a68cfa5-4c1e-4f3e-8ba9-07321dd2465e.jfif"
+    },
+    {
+      "Id": "D:\\uni\\9° Ciclo\\Ingeniería Web\\ProyectoPanadería\\Panaderia\\Panaderia\\wwwroot\\imagenes\\producto\\792047a9-9ce1-4662-9217-10af7b9e31f7.jfif",
+      "PackagePath": "staticwebassets\\imagenes\\producto\\792047a9-9ce1-4662-9217-10af7b9e31f7.jfif"
+    },
+    {
+      "Id": "D:\\uni\\9° Ciclo\\Ingeniería Web\\ProyectoPanadería\\Panaderia\\Panaderia\\wwwroot\\imagenes\\producto\\804b42d8-bf00-4ced-91b6-151a449801cc.jfif",
+      "PackagePath": "staticwebassets\\imagenes\\producto\\804b42d8-bf00-4ced-91b6-151a449801cc.jfif"
+    },
+    {
+      "Id": "D:\\uni\\9° Ciclo\\Ingeniería Web\\ProyectoPanadería\\Panaderia\\Panaderia\\wwwroot\\imagenes\\producto\\dd5a0c91-1de5-423e-a445-6ee949f80dbb.jfif",
+      "PackagePath": "staticwebassets\\imagenes\\producto\\dd5a0c91-1de5-423e-a445-6ee949f80dbb.jfif"
+    },
+    {
+      "Id": "D:\\uni\\9° Ciclo\\Ingeniería Web\\ProyectoPanadería\\Panaderia\\Panaderia\\wwwroot\\imagenes\\producto\\e37e230e-11a2-4fd1-b044-cac33ada3175.jfif",
+      "PackagePath": "staticwebassets\\imagenes\\producto\\e37e230e-11a2-4fd1-b044-cac33ada3175.jfif"
+    },
+    {
+      "Id": "D:\\uni\\9° Ciclo\\Ingeniería Web\\ProyectoPanadería\\Panaderia\\Panaderia\\wwwroot\\imagenes\\producto\\e59b6ea6-cf35-4a44-bf3e-a3dad1c05cd0.jpg",
+      "PackagePath": "staticwebassets\\imagenes\\producto\\e59b6ea6-cf35-4a44-bf3e-a3dad1c05cd0.jpg"
+    },
+    {
       "Id": "D:\\uni\\9° Ciclo\\Ingeniería Web\\ProyectoPanadería\\Panaderia\\Panaderia\\wwwroot\\js\\almacen.js",
       "PackagePath": "staticwebassets\\js\\almacen.js"
     },
