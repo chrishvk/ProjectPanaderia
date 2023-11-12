@@ -25,6 +25,10 @@
       "PackagePath": "staticwebassets\\js\\marca.js"
     },
     {
+      "Id": "D:\\uni\\9° Ciclo\\Ingeniería Web\\ProyectoPanadería\\Panaderia\\Panaderia\\wwwroot\\js\\producto.js",
+      "PackagePath": "staticwebassets\\js\\producto.js"
+    },
+    {
       "Id": "D:\\uni\\9° Ciclo\\Ingeniería Web\\ProyectoPanadería\\Panaderia\\Panaderia\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
     },

@@ -37,6 +37,7 @@
                                 <li><a class="dropdown-item" asp-area="Admin" asp-controller="Almacen" asp-action="Index">Almacenes</a></li>
                                 <li><a class="dropdown-item" asp-area="Admin" asp-controller="Categoria" asp-action="Index">Categorías</a></li>
                                 <li><a class="dropdown-item" asp-area="Admin" asp-controller="Marca" asp-action="Index">Marcas</a></li>
+                                <li><a class="dropdown-item" asp-area="Admin" asp-controller="Producto" asp-action="Index">Productos</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -63,6 +64,6 @@
     <script src="https://cdn.datatables.net/1.13.3/js/jquery.dataTables.min.js"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
-    @await RenderSectionAsync("Scripts", required: false)
+    @await RenderSectionAsync("Scripts", required: false);
 </body>
 </html>

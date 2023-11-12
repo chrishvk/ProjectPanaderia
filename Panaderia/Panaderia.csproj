@@ -2,7 +2,6 @@
 
   <PropertyGroup>
     <TargetFramework>net7.0</TargetFramework>
-    <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <UserSecretsId>aspnet-Panaderia-443ced93-678d-4b69-99cc-b5bb3b83003d</UserSecretsId>
   </PropertyGroup>
@@ -21,6 +20,10 @@
     <ProjectReference Include="..\Panaderia.AccesoDatos\Panaderia.AccesoDatos.csproj" />
     <ProjectReference Include="..\Panaderia.Modelos\Panaderia.Modelos.csproj" />
     <ProjectReference Include="..\Panaderia.Utilidades\Panaderia.Utilidades.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\imagenes\producto\" />
   </ItemGroup>
 
 </Project>

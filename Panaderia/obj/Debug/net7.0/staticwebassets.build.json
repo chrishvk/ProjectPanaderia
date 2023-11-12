@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "v0XLJnMSrwgl9et/9tLTDlbJrY9iVWJJmmLUKkRAab4=",
+  "Hash": "uBWOgAF5Yo1vXH8GIVsTGq/rny5vKGNclpMIYu+lz+I=",
   "Source": "Panaderia",
   "BasePath": "_content/Panaderia",
   "Mode": "Default",
@@ -1154,6 +1154,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\marca.js"
+    },
+    {
+      "Identity": "D:\\uni\\9° Ciclo\\Ingeniería Web\\ProyectoPanadería\\Panaderia\\Panaderia\\wwwroot\\js\\producto.js",
+      "SourceId": "Panaderia",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\uni\\9° Ciclo\\Ingeniería Web\\ProyectoPanadería\\Panaderia\\Panaderia\\wwwroot\\",
+      "BasePath": "_content/Panaderia",
+      "RelativePath": "js/producto.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\producto.js"
     },
     {
       "Identity": "D:\\uni\\9° Ciclo\\Ingeniería Web\\ProyectoPanadería\\Panaderia\\Panaderia\\wwwroot\\js\\site.js",

@@ -11,7 +11,9 @@ namespace Panaderia.AccesoDatos.Repositorio.IRepositorio
 
         IAlmacenRepositorio Almacen {  get; }
         ICategoriaRepositorio Categoria { get; }
-        IMarcaRepositorio   Marca { get; }
+        IMarcaRepositorio Marca { get; }
+
+        IProductoRepositorio Producto { get; }
 
         Task Guardar();
     }

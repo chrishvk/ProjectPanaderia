@@ -10,5 +10,8 @@ namespace Panaderia.Utilidades
     {
         public const string Exitosa = "Existosa";
         public const string Error = "Error";
+
+        //Ruta de imagenes
+        public const string ImagenRuta = @"\imagenes\producto\";
     }
 }
