@@ -9,3 +9,4 @@ D:\uni\9° Ciclo\Ingeniería Web\ProyectoPanadería\Panaderia\Panaderia.Utilidad
 D:\uni\9° Ciclo\Ingeniería Web\ProyectoPanadería\Panaderia\Panaderia.Utilidades\obj\Debug\net7.0\refint\Panaderia.Utilidades.dll
 D:\uni\9° Ciclo\Ingeniería Web\ProyectoPanadería\Panaderia\Panaderia.Utilidades\obj\Debug\net7.0\Panaderia.Utilidades.pdb
 D:\uni\9° Ciclo\Ingeniería Web\ProyectoPanadería\Panaderia\Panaderia.Utilidades\obj\Debug\net7.0\ref\Panaderia.Utilidades.dll
+D:\uni\9° Ciclo\Ingeniería Web\ProyectoPanadería\Panaderia\Panaderia.Utilidades\obj\Debug\net7.0\Panaderia.Utilidades.csproj.AssemblyReference.cache
