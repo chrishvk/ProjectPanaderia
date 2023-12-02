@@ -81,6 +81,10 @@
       "PackagePath": "staticwebassets\\js\\site.js"
     },
     {
+      "Id": "D:\\uni\\9° Ciclo\\Ingeniería Web\\ProyectoPanadería\\Panaderia\\Panaderia\\wwwroot\\js\\usuario.js",
+      "PackagePath": "staticwebassets\\js\\usuario.js"
+    },
+    {
       "Id": "D:\\uni\\9° Ciclo\\Ingeniería Web\\ProyectoPanadería\\Panaderia\\Panaderia\\wwwroot\\lib\\bootstrap\\LICENSE",
       "PackagePath": "staticwebassets\\lib\\bootstrap"
     },
