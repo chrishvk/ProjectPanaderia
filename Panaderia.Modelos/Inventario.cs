@@ -1,0 +1,37 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Panaderia.Modelos
+{
+    public class Inventario
+    {
+        [Key]
+        public int Id { get; set; }
+
+        [Required]
+        public string UsuarioAplicacionId { get; set; }
+
+        [ForeignKey("UsuarioAplicacionId")]
+        public UsuarioAplicacion UsuarioAplicacion { get; set; }
+
+        [Required]
+        public DateTime FechaInicial { get; set; }
+
+        [Required]
+        public DateTime FechaFinal { get; set; }
+
+        [Required(ErrorMessage = "La selección de un almacén es obligatorio")]
+        public int AlmacenId { get; set; }
+
+        [ForeignKey("AlmacenId")]
+        public Almacen Almacen { get; set; }
+
+        [Required]
+        public bool Estado { get; set; }
+    }
+}

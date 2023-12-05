@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Panaderia.AccesoDatos.Repositorio.IRepositorio;
 using Panaderia.Modelos;
 using Panaderia.Modelos.ViewModels;
@@ -7,6 +8,7 @@ using Panaderia.Utilidades;
 namespace Panaderia.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Authorize(Roles = DS.Role_Admin + "," + DS.Role_Inventario)]
     public class ProductoController : Controller
     {
 

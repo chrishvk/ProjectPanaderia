@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Panaderia.AccesoDatos.Repositorio.IRepositorio;
 using Panaderia.Modelos;
 using Panaderia.Utilidades;
@@ -6,6 +7,7 @@ using Panaderia.Utilidades;
 namespace Panaderia.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Authorize(Roles = DS.Role_Admin)]
     public class MarcaController : Controller
     {
 

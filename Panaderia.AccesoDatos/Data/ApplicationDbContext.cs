@@ -21,6 +21,14 @@ namespace Panaderia.Acceso.Datos.Data
 
         public DbSet<UsuarioAplicacion> UsuarioAplicacion {  get; set; }
 
+        public DbSet<AlmacenProducto> AlmacenesProductos { get; set; }
+
+        public DbSet<Inventario> Inventarios { get; set; }
+
+        public DbSet<InventarioDetalle> InventarioDetalles { get; set; }
+
+        public DbSet<KardexInventario> KardexInventarios { get; set; }
+
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);

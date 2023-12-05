@@ -1,11 +1,14 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Panaderia.Acceso.Datos.Data;
 using Panaderia.AccesoDatos.Repositorio.IRepositorio;
+using Panaderia.Utilidades;
 
 namespace Panaderia.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Authorize(Roles = DS.Role_Admin)]
     public class UsuarioController : Controller
     {
         private readonly IUnidadTrabajo _unidadTrabajo;

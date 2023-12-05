@@ -11,9 +11,18 @@ namespace Panaderia.AccesoDatos.Repositorio.IRepositorio
 
         IAlmacenRepositorio Almacen {  get; }
         ICategoriaRepositorio Categoria { get; }
+
         IMarcaRepositorio Marca { get; }
         IProductoRepositorio Producto { get; }
+
         IUsuarioAplicacionRepositorio UsuarioAplicacion { get; }
+
+        IAlmacenProductoRepositorio AlmacenProducto { get; }
+        IInventarioRepositorio Inventario { get; }
+
+        IInventarioDetalleRepositorio InventarioDetalle { get; }
+
+        IKardexInventarioRepositorio KardexInventario { get; }
 
         Task Guardar();
     }

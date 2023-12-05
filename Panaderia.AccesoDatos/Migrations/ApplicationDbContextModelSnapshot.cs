@@ -17,7 +17,7 @@ namespace Panaderia.AccesoDatos.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "7.0.11")
+                .HasAnnotation("ProductVersion", "7.0.12")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
@@ -175,12 +175,10 @@ namespace Panaderia.AccesoDatos.Migrations
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
                 {
                     b.Property<string>("LoginProvider")
-                        .HasMaxLength(128)
-                        .HasColumnType("nvarchar(128)");
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("ProviderKey")
-                        .HasMaxLength(128)
-                        .HasColumnType("nvarchar(128)");
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("ProviderDisplayName")
                         .HasColumnType("nvarchar(max)");
@@ -217,12 +215,10 @@ namespace Panaderia.AccesoDatos.Migrations
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("LoginProvider")
-                        .HasMaxLength(128)
-                        .HasColumnType("nvarchar(128)");
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Name")
-                        .HasMaxLength(128)
-                        .HasColumnType("nvarchar(128)");
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Value")
                         .HasColumnType("nvarchar(max)");
@@ -258,6 +254,32 @@ namespace Panaderia.AccesoDatos.Migrations
                     b.ToTable("Almacenes");
                 });
 
+            modelBuilder.Entity("Panaderia.Modelos.AlmacenProducto", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("AlmacenId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Cantidad")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ProductoId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AlmacenId");
+
+                    b.HasIndex("ProductoId");
+
+                    b.ToTable("AlmacenesProductos");
+                });
+
             modelBuilder.Entity("Panaderia.Modelos.Categoria", b =>
                 {
                     b.Property<int>("Id")
@@ -282,6 +304,119 @@ namespace Panaderia.AccesoDatos.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Categorias");
+                });
+
+            modelBuilder.Entity("Panaderia.Modelos.Inventario", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("AlmacenId")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("Estado")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime>("FechaFinal")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("FechaInicial")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("UsuarioAplicacionId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AlmacenId");
+
+                    b.HasIndex("UsuarioAplicacionId");
+
+                    b.ToTable("Inventarios");
+                });
+
+            modelBuilder.Entity("Panaderia.Modelos.InventarioDetalle", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("Cantidad")
+                        .HasColumnType("int");
+
+                    b.Property<int>("InventarioId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ProductoId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("StockAnterior")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("InventarioId");
+
+                    b.HasIndex("ProductoId");
+
+                    b.ToTable("InventarioDetalles");
+                });
+
+            modelBuilder.Entity("Panaderia.Modelos.KardexInventario", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("AlmacenProductoId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Cantidad")
+                        .HasColumnType("int");
+
+                    b.Property<double>("Costo")
+                        .HasColumnType("float");
+
+                    b.Property<string>("Detalle")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("FechaRegistro")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("Stock")
+                        .HasColumnType("int");
+
+                    b.Property<int>("StockAnterior")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Tipo")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<double>("Total")
+                        .HasColumnType("float");
+
+                    b.Property<string>("UsuarioAplicacionId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AlmacenProductoId");
+
+                    b.HasIndex("UsuarioAplicacionId");
+
+                    b.ToTable("KardexInventarios");
                 });
 
             modelBuilder.Entity("Panaderia.Modelos.Marca", b =>
@@ -441,6 +576,82 @@ namespace Panaderia.AccesoDatos.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("Panaderia.Modelos.AlmacenProducto", b =>
+                {
+                    b.HasOne("Panaderia.Modelos.Almacen", "Almacen")
+                        .WithMany()
+                        .HasForeignKey("AlmacenId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
+                    b.HasOne("Panaderia.Modelos.Producto", "Producto")
+                        .WithMany()
+                        .HasForeignKey("ProductoId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
+                    b.Navigation("Almacen");
+
+                    b.Navigation("Producto");
+                });
+
+            modelBuilder.Entity("Panaderia.Modelos.Inventario", b =>
+                {
+                    b.HasOne("Panaderia.Modelos.Almacen", "Almacen")
+                        .WithMany()
+                        .HasForeignKey("AlmacenId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
+                    b.HasOne("Panaderia.Modelos.UsuarioAplicacion", "UsuarioAplicacion")
+                        .WithMany()
+                        .HasForeignKey("UsuarioAplicacionId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
+                    b.Navigation("Almacen");
+
+                    b.Navigation("UsuarioAplicacion");
+                });
+
+            modelBuilder.Entity("Panaderia.Modelos.InventarioDetalle", b =>
+                {
+                    b.HasOne("Panaderia.Modelos.Inventario", "Inventario")
+                        .WithMany()
+                        .HasForeignKey("InventarioId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
+                    b.HasOne("Panaderia.Modelos.Producto", "Producto")
+                        .WithMany()
+                        .HasForeignKey("ProductoId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
+                    b.Navigation("Inventario");
+
+                    b.Navigation("Producto");
+                });
+
+            modelBuilder.Entity("Panaderia.Modelos.KardexInventario", b =>
+                {
+                    b.HasOne("Panaderia.Modelos.AlmacenProducto", "AlmacenProducto")
+                        .WithMany()
+                        .HasForeignKey("AlmacenProductoId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
+                    b.HasOne("Panaderia.Modelos.UsuarioAplicacion", "UsuarioAplicacion")
+                        .WithMany()
+                        .HasForeignKey("UsuarioAplicacionId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
+                    b.Navigation("AlmacenProducto");
+
+                    b.Navigation("UsuarioAplicacion");
                 });
 
             modelBuilder.Entity("Panaderia.Modelos.Producto", b =>
