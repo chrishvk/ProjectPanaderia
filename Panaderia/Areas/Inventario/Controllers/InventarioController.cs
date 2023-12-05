@@ -5,6 +5,7 @@ using Panaderia.AccesoDatos.Repositorio.IRepositorio;
 using Panaderia.Modelos;
 using Panaderia.Modelos.ViewModels;
 using Panaderia.Utilidades;
+using Rotativa.AspNetCore;
 using System.Numerics;
 using System.Security.Claims;
 
@@ -206,6 +207,32 @@ namespace Panaderia.Areas.Inventario.Controllers
                                         orderBy: o => o.OrderBy( o => o.FechaRegistro)
                                         );
             return View(kardexInventarioVM);
+        }
+
+        public async Task<IActionResult> ImprimirKardex(DateTime fechaInicio, DateTime fechaFinal, int productoId)
+        {
+            KardexInventarioVM kardexInventarioVM = new KardexInventarioVM();
+            kardexInventarioVM.Producto = new Producto();
+            kardexInventarioVM.Producto = await _unidadTrabajo.Producto.Obtener(productoId);
+
+            kardexInventarioVM.FechaInicio = fechaInicio;
+            kardexInventarioVM.FechaFinal = fechaFinal;
+
+            kardexInventarioVM.KardexInventarioLista = await _unidadTrabajo.KardexInventario.ObtenerTodos(
+                                                                    k => k.AlmacenProducto.ProductoId == productoId &&
+                                                                    (k.FechaRegistro >= kardexInventarioVM.FechaInicio &&
+                                                                    k.FechaRegistro <= kardexInventarioVM.FechaFinal),
+                                        incluirPropiedades: "AlmacenProducto,AlmacenProducto.Producto,AlmacenProducto.Almacen",
+                                        orderBy: o => o.OrderBy(o => o.FechaRegistro)
+                                        );
+
+            return new ViewAsPdf("ImprimirKardex", kardexInventarioVM)
+            {
+                FileName = "KardexProducto.pdf",
+                PageOrientation = Rotativa.AspNetCore.Options.Orientation.Portrait,
+                PageSize = Rotativa.AspNetCore.Options.Size.A4,
+                CustomSwitches = "--page-offset 0 --footer-center [page] --footer-font-size 12"
+            };
         }
 
         #region API
