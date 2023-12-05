@@ -1,9 +1,12 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Panaderia.AccesoDatos.Repositorio.IRepositorio;
 using Panaderia.Modelos;
 using Panaderia.Modelos.Especificaciones;
 using Panaderia.Modelos.ViewModels;
+using Panaderia.Utilidades;
 using System.Diagnostics;
+using System.Security.Claims;
 
 namespace Panaderia.Areas.Inventario.Controllers
 {
@@ -12,6 +15,8 @@ namespace Panaderia.Areas.Inventario.Controllers
     {
         private readonly ILogger<HomeController> _logger;
         private readonly IUnidadTrabajo _unidadTrabajo;
+        [BindProperty]
+        public CarroCompraVM carroCompraVM { get; set; }
 
         public HomeController(ILogger<HomeController> logger, IUnidadTrabajo unidadTrabajo)
         {
@@ -19,9 +24,20 @@ namespace Panaderia.Areas.Inventario.Controllers
             _unidadTrabajo = unidadTrabajo;
         }
 
-        public IActionResult Index(int pageNumber = 1, string busqueda="", string busquedaActual="")
+        public async Task<IActionResult> Index(int pageNumber = 1, string busqueda="", string busquedaActual="")
         {
-            if(!String.IsNullOrEmpty(busqueda))
+            // Controlaar la sesión
+            var claimIdentity = (ClaimsIdentity)User.Identity;
+            var claim = claimIdentity.FindFirst(ClaimTypes.NameIdentifier);
+            if(claim != null)
+            {
+                var carroLista = await _unidadTrabajo.CarroCompra.ObtenerTodos(c => c.UsuarioAplicacionId == claim.Value);
+                var numeroProductos = carroLista.Count(); //Numero de registros
+                HttpContext.Session.SetInt32(DS.ssCarroCompras, numeroProductos);
+            }
+
+            //
+            if (!String.IsNullOrEmpty(busqueda))
             {
                 pageNumber = 1;
             }
@@ -57,6 +73,62 @@ namespace Panaderia.Areas.Inventario.Controllers
             if (resultado.MetaData.TotalPages  <= pageNumber) { ViewData["Siguiente"] = "disabled";  }
 
             return View(resultado);
+        }
+
+        public async Task<IActionResult> Detalle(int id)
+        {
+            carroCompraVM = new CarroCompraVM();
+            carroCompraVM.Compania = await _unidadTrabajo.Compania.ObtenerPrimero();
+            carroCompraVM.Producto = await _unidadTrabajo.Producto.ObtenerPrimero(p => p.Id == id,
+                                                incluirPropiedades: "Marca,Categoria");
+            var almacenProducto = await _unidadTrabajo.AlmacenProducto.ObtenerPrimero(b => b.ProductoId == id &&
+                                                                                           b.AlmacenId == carroCompraVM.Compania.AlmacenVentaId);
+            if(almacenProducto == null)
+            {
+                carroCompraVM.Stock = 0;
+            }
+            else
+            {
+                carroCompraVM.Stock = almacenProducto.Cantidad;
+            }
+            carroCompraVM.CarroCompra = new CarroCompra()
+            {
+                Producto = carroCompraVM.Producto,
+                ProductoId = carroCompraVM.Producto.Id
+            };
+
+            return View(carroCompraVM);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        [Authorize]
+        public async Task<IActionResult> Detalle(CarroCompraVM carroCompraVM)
+        {
+            var claimIdentity = (ClaimsIdentity)User.Identity;
+            var claim = claimIdentity.FindFirst(ClaimTypes.NameIdentifier);
+            carroCompraVM.CarroCompra.UsuarioAplicacionId = claim.Value;
+
+            CarroCompra carroBD = await _unidadTrabajo.CarroCompra.ObtenerPrimero(c => c.UsuarioAplicacionId == claim.Value &&
+                                                                                       c.ProductoId == carroCompraVM.CarroCompra.ProductoId);
+            if(carroBD == null)
+            {
+                await _unidadTrabajo.CarroCompra.Agregar(carroCompraVM.CarroCompra);
+            }
+            else
+            {
+                carroBD.Cantidad += carroCompraVM.CarroCompra.Cantidad;
+                _unidadTrabajo.CarroCompra.Actualizar(carroBD);
+            }
+            await _unidadTrabajo.Guardar();
+            TempData[DS.Exitosa] = "Producto agregado al carro de compras";
+
+            //Agregar valor a la sesión
+            var carroLista = await _unidadTrabajo.CarroCompra.ObtenerTodos(c => c.UsuarioAplicacionId == claim.Value);
+            var numeroProductos = carroLista.Count(); //Numero de registros
+            HttpContext.Session.SetInt32(DS.ssCarroCompras, numeroProductos);
+
+            return RedirectToAction("Index");
         }
 
         public IActionResult Privacy()
