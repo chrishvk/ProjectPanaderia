@@ -27,6 +27,8 @@ namespace Panaderia.AccesoDatos.Repositorio
 
         public IKardexInventarioRepositorio KardexInventario { get; private set; }
 
+        public ICompaniaRepositorio Compania { get; private set; }
+
         public UnidadTrabajo(ApplicationDbContext db)
         {
             _db = db;
@@ -38,7 +40,8 @@ namespace Panaderia.AccesoDatos.Repositorio
             AlmacenProducto = new AlmacenProductoRepositorio(_db);
             Inventario = new InventarioRepositorio(_db);
             InventarioDetalle = new InventarioDetalleRepositorio(_db);
-            KardexInventario = new KardexInventarioRepositorio(db);
+            KardexInventario = new KardexInventarioRepositorio(_db);
+            Compania = new CompaniaRepositorio(_db);
         }
 
         public void Dispose()
