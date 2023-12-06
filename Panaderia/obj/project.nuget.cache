@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "zxBmm9Lr1do5LUeRN9snwCl6NpDfalKDETN7uIZHOUpIfXF5thQ6KIL9d3afs/FCXcCc+tcN1BjsQwMLsvm2Ag==",
+  "dgSpecHash": "PBC0zpC1S3AxdB9IphWq4OT1fGOvIwlSY6n9RjGFSrfj1zg2Pu2PZa8syT9fn2geX5ouIgoUuY5h9juj2f7Plw==",
   "success": true,
   "projectFilePath": "D:\\uni\\9° Ciclo\\Ingeniería Web\\ProyectoPanadería\\Panaderia\\Panaderia\\Panaderia.csproj",
   "expectedPackageFiles": [
@@ -207,6 +207,7 @@
     "C:\\Users\\Chris\\.nuget\\packages\\sqlitepclraw.core\\2.1.4\\sqlitepclraw.core.2.1.4.nupkg.sha512",
     "C:\\Users\\Chris\\.nuget\\packages\\sqlitepclraw.lib.e_sqlite3\\2.1.4\\sqlitepclraw.lib.e_sqlite3.2.1.4.nupkg.sha512",
     "C:\\Users\\Chris\\.nuget\\packages\\sqlitepclraw.provider.e_sqlite3\\2.1.4\\sqlitepclraw.provider.e_sqlite3.2.1.4.nupkg.sha512",
+    "C:\\Users\\Chris\\.nuget\\packages\\stripe.net\\41.17.0\\stripe.net.41.17.0.nupkg.sha512",
     "C:\\Users\\Chris\\.nuget\\packages\\system.appcontext\\4.3.0\\system.appcontext.4.3.0.nupkg.sha512",
     "C:\\Users\\Chris\\.nuget\\packages\\system.buffers\\4.5.0\\system.buffers.4.5.0.nupkg.sha512",
     "C:\\Users\\Chris\\.nuget\\packages\\system.codedom\\4.4.0\\system.codedom.4.4.0.nupkg.sha512",
