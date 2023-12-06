@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "lpEChxBvyKQNfsOBpXF98yTIekdNntKX/zY4Aa0DxYo=",
+  "Hash": "ZXE/kSWNdGuQeiqywbgO0dKY293PCzEccy95cH2OtM4=",
   "Source": "Panaderia",
   "BasePath": "_content/Panaderia",
   "Mode": "Default",
@@ -1103,6 +1103,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.ico"
+    },
+    {
+      "Identity": "D:\\uni\\9° Ciclo\\Ingeniería Web\\ProyectoPanadería\\Panaderia\\Panaderia\\wwwroot\\imagenes\\confirmacion.jpg",
+      "SourceId": "Panaderia",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\uni\\9° Ciclo\\Ingeniería Web\\ProyectoPanadería\\Panaderia\\Panaderia\\wwwroot\\",
+      "BasePath": "_content/Panaderia",
+      "RelativePath": "imagenes/confirmacion.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\imagenes\\confirmacion.jpg"
     },
     {
       "Identity": "D:\\uni\\9° Ciclo\\Ingeniería Web\\ProyectoPanadería\\Panaderia\\Panaderia\\wwwroot\\imagenes\\icono.ico",

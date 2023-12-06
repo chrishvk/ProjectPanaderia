@@ -1,20 +1,21 @@
 ﻿using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Rotativa.AspNetCore;
 using Panaderia.AccesoDatos.Repositorio.IRepositorio;
 using Panaderia.Modelos;
 using Panaderia.Modelos.ViewModels;
 using Panaderia.Utilidades;
-using Rotativa.AspNetCore;
-using System.Numerics;
+using System.Globalization;
 using System.Security.Claims;
 
-namespace Panaderia.Areas.Inventario.Controllers
+
+namespace SistemaInventario.Areas.Inventario.Controllers
 {
     [Area("Inventario")]
     [Authorize(Roles = DS.Role_Admin + "," + DS.Role_Inventario)]
     public class InventarioController : Controller
     {
+
         private readonly IUnidadTrabajo _unidadTrabajo;
 
         [BindProperty]
@@ -34,12 +35,12 @@ namespace Panaderia.Areas.Inventario.Controllers
         {
             inventarioVM = new InventarioVM()
             {
-                Inventario = new Modelos.Inventario(),
+                Inventario = new Panaderia.Modelos.Inventario(),
                 AlmacenLista = _unidadTrabajo.Inventario.ObtenerTodosDropdownLista("Almacen")
             };
 
             inventarioVM.Inventario.Estado = false;
-            //Obtener el Id del usuario de la sesión activa
+            // Obtener el Id del Usuario desde la sesion
             var claimIdentity = (ClaimsIdentity)User.Identity;
             var claim = claimIdentity.FindFirst(ClaimTypes.NameIdentifier);
             inventarioVM.Inventario.UsuarioAplicacionId = claim.Value;
@@ -53,7 +54,7 @@ namespace Panaderia.Areas.Inventario.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> NuevoInventario(InventarioVM inventarioVM)
         {
-            if(ModelState.IsValid)
+            if (ModelState.IsValid)
             {
                 inventarioVM.Inventario.FechaInicial = DateTime.Now;
                 inventarioVM.Inventario.FechaFinal = DateTime.Now;
@@ -68,28 +69,28 @@ namespace Panaderia.Areas.Inventario.Controllers
         public async Task<IActionResult> DetalleInventario(int id)
         {
             inventarioVM = new InventarioVM();
-            inventarioVM.Inventario = await _unidadTrabajo.Inventario.ObtenerPrimero(i => i.Id == id, incluirPropiedades:"Almacen");
+            inventarioVM.Inventario = await _unidadTrabajo.Inventario.ObtenerPrimero(i => i.Id == id, incluirPropiedades: "Almacen");
             inventarioVM.inventarioDetalles = await _unidadTrabajo.InventarioDetalle.ObtenerTodos(d => d.InventarioId == id,
-                                                                                                incluirPropiedades:"Producto,Producto.Marca");
+                                                                                               incluirPropiedades: "Producto,Producto.Marca");
             return View(inventarioVM);
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DetalleInventairo(int InventarioId, int productoId, int cantidadId)
+        public async Task<IActionResult> DetalleInventario(int InventarioId, int productoId, int cantidadId)
         {
             inventarioVM = new InventarioVM();
             inventarioVM.Inventario = await _unidadTrabajo.Inventario.ObtenerPrimero(i => i.Id == InventarioId);
             var almacenProducto = await _unidadTrabajo.AlmacenProducto.ObtenerPrimero(b => b.ProductoId == productoId &&
-                                                                                            b.AlmacenId == inventarioVM.Inventario.AlmacenId);
+                                                                                        b.AlmacenId == inventarioVM.Inventario.AlmacenId);
             var detalle = await _unidadTrabajo.InventarioDetalle.ObtenerPrimero(d => d.InventarioId == InventarioId &&
-                                                                                     d.ProductoId == productoId);
-            if(detalle == null)
+                                                                                   d.ProductoId == productoId);
+            if (detalle == null)
             {
                 inventarioVM.InventarioDetalle = new InventarioDetalle();
                 inventarioVM.InventarioDetalle.ProductoId = productoId;
                 inventarioVM.InventarioDetalle.InventarioId = InventarioId;
-                if(almacenProducto != null)
+                if (almacenProducto != null)
                 {
                     inventarioVM.InventarioDetalle.StockAnterior = almacenProducto.Cantidad;
                 }
@@ -109,7 +110,8 @@ namespace Panaderia.Areas.Inventario.Controllers
             return RedirectToAction("DetalleInventario", new { id = InventarioId });
         }
 
-        public async Task<IActionResult> Mas(int id) //id del detalle
+
+        public async Task<IActionResult> Mas(int id)  // recibe el id del detalle
         {
             inventarioVM = new InventarioVM();
             var detalle = await _unidadTrabajo.InventarioDetalle.Obtener(id);
@@ -120,12 +122,12 @@ namespace Panaderia.Areas.Inventario.Controllers
             return RedirectToAction("DetalleInventario", new { id = inventarioVM.Inventario.Id });
         }
 
-        public async Task<IActionResult> Menos(int id) //id del detalle
+        public async Task<IActionResult> Menos(int id)  // recibe el id del detalle
         {
             inventarioVM = new InventarioVM();
             var detalle = await _unidadTrabajo.InventarioDetalle.Obtener(id);
             inventarioVM.Inventario = await _unidadTrabajo.Inventario.Obtener(detalle.InventarioId);
-            if(detalle.Cantidad == 1)
+            if (detalle.Cantidad == 1)
             {
                 _unidadTrabajo.InventarioDetalle.Remover(detalle);
                 await _unidadTrabajo.Guardar();
@@ -135,7 +137,7 @@ namespace Panaderia.Areas.Inventario.Controllers
                 detalle.Cantidad -= 1;
                 await _unidadTrabajo.Guardar();
             }
-            
+
             return RedirectToAction("DetalleInventario", new { id = inventarioVM.Inventario.Id });
         }
 
@@ -143,7 +145,7 @@ namespace Panaderia.Areas.Inventario.Controllers
         {
             var inventario = await _unidadTrabajo.Inventario.Obtener(id);
             var detalleLista = await _unidadTrabajo.InventarioDetalle.ObtenerTodos(d => d.InventarioId == id);
-            //Obtener el Id del usuario de la sesión activa
+            // Obtener el Id del Usuario desde la sesion
             var claimIdentity = (ClaimsIdentity)User.Identity;
             var claim = claimIdentity.FindFirst(ClaimTypes.NameIdentifier);
 
@@ -151,15 +153,16 @@ namespace Panaderia.Areas.Inventario.Controllers
             {
                 var almacenProducto = new AlmacenProducto();
                 almacenProducto = await _unidadTrabajo.AlmacenProducto.ObtenerPrimero(b => b.ProductoId == item.ProductoId &&
-                                                                                           b.AlmacenId == inventario.AlmacenId);
-                if(almacenProducto != null) //El registro de stock existe
+                                                                                         b.AlmacenId == inventario.AlmacenId);
+                if (almacenProducto != null) //  El registro de Stock existe, hay que actualizar las cantidades
                 {
-                    await _unidadTrabajo.KardexInventario.RegistrarKardex(almacenProducto.Id, "Entrada", "Registro de inventario",
+                    await _unidadTrabajo.KardexInventario.RegistrarKardex(almacenProducto.Id, "Entrada", "Registro de Inventario",
                                                                           almacenProducto.Cantidad, item.Cantidad, claim.Value);
                     almacenProducto.Cantidad += item.Cantidad;
                     await _unidadTrabajo.Guardar();
+
                 }
-                else //Si el registro de stock no existe
+                else  // Registro de Stock no existe, hay que crearlo
                 {
                     almacenProducto = new AlmacenProducto();
                     almacenProducto.AlmacenId = inventario.AlmacenId;
@@ -167,16 +170,18 @@ namespace Panaderia.Areas.Inventario.Controllers
                     almacenProducto.Cantidad = item.Cantidad;
                     await _unidadTrabajo.AlmacenProducto.Agregar(almacenProducto);
                     await _unidadTrabajo.Guardar();
-                    await _unidadTrabajo.KardexInventario.RegistrarKardex(almacenProducto.Id, "Entrada", "Inventario inicial",
-                                                                          0, item.Cantidad, claim.Value);
+                    await _unidadTrabajo.KardexInventario.RegistrarKardex(almacenProducto.Id, "Entrada", "Inventario Inicial",
+                                                                         0, item.Cantidad, claim.Value);
                 }
-            }
 
+            }
+            // Actualizar la Cabecera de Inventario
             inventario.Estado = true;
             inventario.FechaFinal = DateTime.Now;
             await _unidadTrabajo.Guardar();
-            TempData[DS.Exitosa] = "Stock generado con exito";
+            TempData[DS.Exitosa] = "Stock Generado con Exito";
             return RedirectToAction("Index");
+
         }
 
         public IActionResult KardexProducto()
@@ -196,7 +201,7 @@ namespace Panaderia.Areas.Inventario.Controllers
             kardexInventarioVM.Producto = new Producto();
             kardexInventarioVM.Producto = await _unidadTrabajo.Producto.Obtener(productoId);
 
-            kardexInventarioVM.FechaInicio = DateTime.Parse(fechaInicioId);  //00:00:00
+            kardexInventarioVM.FechaInicio = DateTime.Parse(fechaInicioId); //  00:00:00
             kardexInventarioVM.FechaFinal = DateTime.Parse(fechaFinalId).AddHours(23).AddMinutes(59);
 
             kardexInventarioVM.KardexInventarioLista = await _unidadTrabajo.KardexInventario.ObtenerTodos(
@@ -204,8 +209,9 @@ namespace Panaderia.Areas.Inventario.Controllers
                                                                     (k.FechaRegistro >= kardexInventarioVM.FechaInicio &&
                                                                     k.FechaRegistro <= kardexInventarioVM.FechaFinal),
                                         incluirPropiedades: "AlmacenProducto,AlmacenProducto.Producto,AlmacenProducto.Almacen",
-                                        orderBy: o => o.OrderBy( o => o.FechaRegistro)
+                                        orderBy: o => o.OrderBy(o => o.FechaRegistro)
                                         );
+
             return View(kardexInventarioVM);
         }
 
@@ -219,12 +225,40 @@ namespace Panaderia.Areas.Inventario.Controllers
             kardexInventarioVM.FechaFinal = fechaFinal;
 
             kardexInventarioVM.KardexInventarioLista = await _unidadTrabajo.KardexInventario.ObtenerTodos(
-                                                                    k => k.AlmacenProducto.ProductoId == productoId &&
-                                                                    (k.FechaRegistro >= kardexInventarioVM.FechaInicio &&
-                                                                    k.FechaRegistro <= kardexInventarioVM.FechaFinal),
-                                        incluirPropiedades: "AlmacenProducto,AlmacenProducto.Producto,AlmacenProducto.Almacen",
-                                        orderBy: o => o.OrderBy(o => o.FechaRegistro)
-                                        );
+                                                                   k => k.AlmacenProducto.ProductoId == productoId &&
+                                                                       (k.FechaRegistro >= kardexInventarioVM.FechaInicio &&
+                                                                        k.FechaRegistro <= kardexInventarioVM.FechaFinal),
+                                            incluirPropiedades: "AlmacenProducto,AlmacenProducto.Producto,AlmacenProducto.Almacen",
+                                            orderBy: o => o.OrderBy(o => o.FechaRegistro)
+                );
+
+            return new ViewAsPdf("ImprimirKardex", kardexInventarioVM)
+            {
+                FileName = "KardexProducto.pdf",
+                PageOrientation = Rotativa.AspNetCore.Options.Orientation.Portrait,
+                PageSize = Rotativa.AspNetCore.Options.Size.A4,
+                CustomSwitches = "--page-offset 0 --footer-center [page] --footer-font-size 12"
+            };
+        }
+
+        public async Task<IActionResult> ImprimirKardexEs(string fechaInicio, string fechaFinal, int productoId)
+        {
+            KardexInventarioVM kardexInventarioVM = new KardexInventarioVM();
+            kardexInventarioVM.Producto = new Producto();
+            kardexInventarioVM.Producto = await _unidadTrabajo.Producto.Obtener(productoId);
+
+            var cultureInfo = CultureInfo.CreateSpecificCulture("es-ES");
+
+            kardexInventarioVM.FechaInicio = DateTime.ParseExact(fechaInicio, "dd.MM.yyyy HH:mm:ss", cultureInfo);
+            kardexInventarioVM.FechaFinal = DateTime.ParseExact(fechaFinal, "dd.MM.yyyy HH:mm:ss", cultureInfo);
+
+            kardexInventarioVM.KardexInventarioLista = await _unidadTrabajo.KardexInventario.ObtenerTodos(
+                                                                   k => k.AlmacenProducto.ProductoId == productoId &&
+                                                                       (k.FechaRegistro >= kardexInventarioVM.FechaInicio &&
+                                                                        k.FechaRegistro <= kardexInventarioVM.FechaFinal),
+                                            incluirPropiedades: "AlmacenProducto,AlmacenProducto.Producto,AlmacenProducto.Almacen",
+                                            orderBy: o => o.OrderBy(o => o.FechaRegistro)
+                );
 
             return new ViewAsPdf("ImprimirKardex", kardexInventarioVM)
             {
@@ -246,10 +280,10 @@ namespace Panaderia.Areas.Inventario.Controllers
         [HttpGet]
         public async Task<IActionResult> BuscarProducto(string term)
         {
-            if(!string.IsNullOrEmpty(term))
+            if (!string.IsNullOrEmpty(term))
             {
                 var listaProductos = await _unidadTrabajo.Producto.ObtenerTodos(p => p.Estado == true);
-                var data = listaProductos.Where(x => x.NumeroSerie.Contains(term, StringComparison.OrdinalIgnoreCase) || 
+                var data = listaProductos.Where(x => x.NumeroSerie.Contains(term, StringComparison.OrdinalIgnoreCase) ||
                                                      x.Descripcion.Contains(term, StringComparison.OrdinalIgnoreCase)).ToList();
                 return Ok(data);
             }
