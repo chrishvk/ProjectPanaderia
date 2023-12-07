@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.EntityFrameworkCore;
 using Panaderia.Acceso.Datos.Data;
+using Panaderia.AccesoDatos.Inicializador;
 using Panaderia.AccesoDatos.Repositorio;
 using Panaderia.AccesoDatos.Repositorio.IRepositorio;
 using Panaderia.Utilidades;
@@ -54,6 +55,8 @@ builder.Services.AddSession(options =>
 
 builder.Services.Configure<StripeSettings>(builder.Configuration.GetSection("Stripe"));
 
+builder.Services.AddScoped<IDbInicializador, DbInicializador>();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -79,6 +82,24 @@ app.UseSession();
 
 app.UseAuthentication();
 app.UseAuthorization();
+
+//Aplicar migraciones y datos iniciales
+using(var scope = app.Services.CreateScope())
+{
+    var services = scope.ServiceProvider;
+    var loggerFactory = services.GetRequiredService<ILoggerFactory>();
+
+    try
+    {
+        var inicializador = services.GetRequiredService<IDbInicializador>();
+        inicializador.Inicializar();
+    }
+    catch (Exception ex)
+    {
+        var logger = loggerFactory.CreateLogger<Program>();
+        logger.LogError(ex, "Ocurrió un error al ejecutar la migración");
+    }
+}
 
 app.MapControllerRoute(
     name: "default",
